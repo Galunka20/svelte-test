@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="shortcut icon" href="логотип.ico" type="image/x-icon">
+<title>Галина</title>
+<style>
+
+.container { width:960px; }
+@media only screen and (max-width: 768px) {
+    /* Стили для планшетов и мобильных устройств */
+}
+ 
+@media only screen and (max-width: 480px) {
+    /* Стили для мобильных устройств */
+}
+
+
+body {
+    overflow-x:hidden;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color:#ffffff; 
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(120, 128, 214, 0.0); /* Полупрозрачный белый фон */
+    padding: 10px 0;
+}
+
+nav {
+    text-align: right;
+    padding: 0 20px;
+    position: sticky;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: rgba(121, 129, 217, 0.3); /* Фиолетовый цвет кнопки */
+    color: #2b219c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main {
+    padding-top: 0px; /* Для учета фиксированного header */
+}
+
+
+.trigger{
+    text-align: center;
+    padding: 9px 15px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-family: cursive;
+}
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 50rem;
+    border-radius: 0.5rem;
+}
+
+
+.close-button {    
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.close-button:hover {
+    background-color: darkgray;
+}
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+
+.fancy { 
+font-family: Impact; 
+text-align: center;
+}
+
+.s1 {
+font-family: Segoe print; 
+display: flex;
+justify-content: center 
+
+}
+
+
+#foto1 {
+position: relative;
+top: -15px;
+
+left: -80px;
+}
+
+#foto2{
+position: relative;
+top: -600px;
+left: 870px;
+}
+
+.card__content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+}
+
+
+
+.imgblock span {
+position: absolute;
+top: 20%;
+left: 1030px;
+color: #3CB371;
+line-height: 30px;
+font-family: Impact;
+font-size: 60px;
+}
+
+
+
+.hr-three-color {
+    margin: -555px 0;
+    padding: 0;
+    height: 3px;
+    border: none;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #5c4da0;
+    background: #32CD32;
+}
+
+
+.image-container {
+  
+    display: inline-block;
+}
+ 
+.image-button {
+  position: absolute;
+  top: 50%;
+  margin: -210px 1467px;
+  color: #32CD32;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #4e5163;
+  padding: 5px 50px;
+}
+    .image-button2 {
+  position: absolute;
+  top: 50%;
+  margin: -170px 1467px;
+  color: #32CD32;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #4e5163;
+  padding: 5px 50px;
+}
+
+
+
+.block1 {
+   position: absolute;
+   top: 1027px;
+   left: 0px;
+   width: 1900px;
+   height: 500px;
+   background-color:  #3CB371;
+   background-image: url();
+   z-index: 1;
+}
+
+h1 {
+font-family: Impact; 
+text-align: center;
+font-size: 30px;
+color:#31364a;
+}
+
+.block2 {
+   position: absolute;
+   top: 100px;
+   left: 600px;
+   width: 730px;
+   height: 350px;
+   border-radius: 20px;
+   background-color: #4e5163;
+   background-image: url();
+   z-index: 1;
+}
+
+h2 { 
+display: block;
+font-family: Arial Black; 
+text-align: center;
+font-size: 20px;
+color:#31364a;
+}
+
+.btn.danger { border-color: #f44236; color: #f44236; }
+.btn {
+    padding: 0.5em 1.5em; /* Поля по вертикали и горизонтали */
+    background-color: transparent; /* Прозрачный цвет фона */
+    font-size: 0.9em; /* Размер текста */
+    text-transform: uppercase; /* Все буквы заглавные */
+    color: #31364a; /* Серый цвет текста */
+    border: 2px solid #31364a; /* Параметры рамки */
+    margin-bottom: 1rem; /* Отступ снизу */
+   }
+#name {
+width: 70px;
+}
+
+#comment {
+width: 650px;
+height: 100px;
+}
+
+.block {
+   position: absolute;
+   top: 1850px;
+   left: 0px;
+   width: 1900px;
+   height: 800px;
+   background-color:  #928fa2;
+   background-image: url();
+   z-index: 1;
+}
+
+
+.reviews {
+  background-color: #928fa2;
+  padding: 20px;
+  border-radius: 5px;
+}
+.review {
+  padding: 10px;
+  border-bottom: 1px solid #928fa2;
+}
+.review:last-child {
+  border-bottom: none;
+}
+.review-text {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.review-author {
+  font-size: 14px;
+  color: #999;
+}
+
+
+body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.outerdiv {
+  	width: 100%;
+    min-height: 90vh;
+    background: #928fa2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.innerdiv {
+	transform: scale(0.9);
+	margin: 1rem;
+	display: grid;
+	grid-gap: 1.5rem;
+	grid-template-rows: repeat(2,22rem);
+	grid-template-columns: repeat(4,17rem);
+}
+.eachdiv {
+	padding: 1rem 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 5px 5px 20px #6d6b6b6b;
+    color: white;
+}
+.div1
+{
+	background: #4e5163;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    background-repeat: no-repeat;
+    background-position-x: 25rem;
+}
+.div2
+{
+	background:#49556B;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    max-height:900px;
+}
+.div3
+{
+	background: #5d5f6c;
+    grid-column: 4/5;
+    grid-row: 1/3;
+    color: rgb(0, 0, 0);
+}
+.div5
+{
+    position: relative;
+	background: #18202D;
+	grid-column: 2/4;
+    grid-row: 2/3;
+    left: -296px;
+    max-width:900px;
+}
+.userdetails
+{
+	display: flex;
+}
+.imgbox
+{
+	margin-right: 1rem;
+}
+.imgbox img
+{
+	border-radius: 50%;
+	width: 4rem;
+	border: 2px solid #ffffff;
+}
+.detbox
+{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.detbox p
+{
+	margin: 0;
+}
+.detbox .name
+{
+	color: hsl(0, 0%, 81%);
+    font-size: 1.1rem;
+    margin-bottom: 0.1rem;
+    font-weight: 600;
+}
+.detbox .name.dark
+{
+	color: #ffffff;
+}
+.detbox .designation
+{
+	color: hsl(0, 0%, 81%);
+    opacity: 50%;
+    font-size: 0.8rem;
+}
+.detbox .designation.dark
+{
+	color: #ffffff;
+}
+
+.review.dark h4{
+	color:#ffffff;
+}
+
+.review.dark p{
+	color: #ffffff;
+}
+
+.attribution a
+{
+	text-decoration: none;
+}
+
+@media only screen and (max-width: 1000px)
+{
+	.innerdiv
+	{
+		transform: scale(0.7);
+	}
+}
+@media only screen and (max-width: 800px)
+{
+	.innerdiv
+	{
+		transform: scale(0.6);
+	}
+}
+@media only screen and (max-width: 600px)
+{
+	.div1 {
+		background-position-x: 10rem;
+	}
+	.innerdiv
+	{
+		display: flex; 
+		flex-direction: column;
+		transform: scale(1);
+		margin: 2rem;
+		margin-bottom: 5rem;
+	}
+	.attribution
+	{
+		position: relative;
+	}
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  
+  font-family: "Raleway", sans-serif;
+  height: 40vh;
+
+}
+
+.center{ /*-210px 1467px*/
+  position: absolute;
+  top: 313px;
+  left: 1587px;
+  transform: translate(-50%, -50%);
+}
+
+.center button{
+  padding: 5px 26px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8e91cb;
+  background: #4e5163;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.popup{
+  position: absolute;
+  top: -150%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.25);
+  width: 386px;
+  padding: 20px 30px;
+  background: #fff;
+  box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  transition: top 0ms ease-in-out 200ms,
+              opacity 200ms ease-in-out 0ms,
+              transform 200ms ease-in-out 0ms;
+}
+
+.popup.active{
+  top: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: top 0ms ease-in-out 0ms,
+              opacity 200ms ease-in-out 0ms,
+              transform 20ms ease-in-out 0ms;
+}
+
+.popup .close-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  background: #000;
+  color: #eee;
+  text-align: center;
+  line-height: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.popup .form h2{
+  text-align: center;
+  color: #222;
+  margin: 10px 0px 20px;
+  font-size: 25px;
+}
+
+.popup .form .form-element{
+  margin: 15px 0px;
+}
+
+.popup .form .form-element label{
+  font-size: 14px;
+  color: #222;
+}
+
+.popup .form .form-element input[type="text"],
+.popup .form .form-element input[type="password"]{
+  margin-top: 5px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.popup .form .form-element input[type="checkbox"]{
+  margin-right: 5px;
+}
+
+.popup .form .form-element button{
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: #222;
+  color: #f5f5f5;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+.popup .form .form-element a {
+  display: block;
+  text-align: right;
+  font-size: 15px;
+  color: #1a79ca;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+       <div class="image-container">
+          <div class='imgblock'>
+
+<div id="foto1"><img src="1.jpeg" alt="Огромное фото" height="1070px" width="950px"></div>
+<div id="foto2"><img src="2.png" alt="Огромное фото" height="500px" width="500"></div>
+
+<form action="сайт.html">
+ <button class="image-button" >Мои увлечения</button>
+     </form>
+              
+ <form action="омне.html">
+ <button class="image-button2" >Познакомимся?</button>
+     </form>
+              
+ 
+
+ 
+       <h3><span>Я, Галина Соломина и мои мир </span></h3>
+  </div>
+
+ </div>
+</div>
+    
+
+
+<div class="block1">
+       <h1> Рада была познокомиться, с уважением Галина! </h1>
+</div>
+
+
+<script>
+    document.querySelector('button').addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+});
+
+    var modal = document.querySelector(".modal");
+var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+
+ let lastScroll = 0;
+const defaultOffset = 200;
+const header = document.querySelector('.header');
+ 
+const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+const containHide = () => header.classList.contains('hide');
+ 
+window.addEventListener('scroll', () => {
+    if(scrollPosition() > lastScroll && !containHide() && scrollPosition() > defaultOffset) {
+        //scroll down
+        header.classList.add('hide');
+    }
+    else if(scrollPosition() < lastScroll && containHide()){
+        //scroll up
+        header.classList.remove('hide');
+    }
+ 
+    lastScroll = scrollPosition();
+})
+
+
+if (!CSS.supports('position', 'sticky')) {
+  // Если нет, то используем Stickyfill
+  var stickyElements = document.querySelectorAll('.sticky');
+  Stickyfill.add(stickyElements);
+}
+
+
+
+
+        document.querySelector("#show-login").addEventListener("click",function(){
+           document.querySelector(".popup").classList.add("active");
+        });
+
+        document.querySelector(".popup .close-btn").addEventListener("click",function(){
+           document.querySelector(".popup").classList.remove("active");
+        });
+
+ 
+</script>
+</body>
+</html>
